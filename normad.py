@@ -12,8 +12,10 @@ def create_relationship():
 
     outf = open('nodelink.cyp', 'w')
     for row in cur.fetchall():
+    
+        cql = 'MATCH (n1:Node {NODEID: \'' + str(row[0]) + '\'}), (n2:Node {NODEID: \'' + str(row[1]) + '\'}) '
         #its important to leave a blank between CREATE and (
-        cql = 'CREATE ( (:Node {NODEID: \'' + str(row[0]) + '\'})-[:' + str(row[2]) + ']->(:Node {NODEID:\'' + str(row[1]) + '\'}) )' 
+        cql = cql + 'CREATE ((n1)-[:' + str(row[2]) + ']->(n2))' 
         outf.write(cql + ';' + '\n')
     
     outf.close()
