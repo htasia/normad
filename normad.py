@@ -3,7 +3,7 @@ import MySQLdb
 db = MySQLdb.connect(host='localhost',
                      user='root',
                      passwd='root123',
-                     db='sam_new')
+                     db='ptd_mg')
 cur = db.cursor()
 
 #create( (:Person {name: 'Baby'})-[:DRIVE]->(:Car {name: 'Honda'}) )
